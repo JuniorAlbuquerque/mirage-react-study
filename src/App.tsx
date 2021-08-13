@@ -8,6 +8,7 @@ interface IDoctors {
   id: number;
   nome: string;
   especialidade: string;
+  avatar: string;
 }
 
 interface IShifts {
@@ -66,7 +67,22 @@ function App() {
             <p style={{ fontWeight: "bold" }}>Doctors</p>
 
             {item.doctors.map((doctor) => (
-              <li key={doctor.id}>{doctor.nome}</li>
+              <div
+                key={doctor.id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: 14,
+                }}
+              >
+                <img
+                  src={doctor.avatar}
+                  alt="AVATAR"
+                  width="80"
+                  style={{ borderRadius: "50%", marginRight: 14 }}
+                />
+                <span>{doctor.nome}</span>
+              </div>
             ))}
           </div>
         ))}

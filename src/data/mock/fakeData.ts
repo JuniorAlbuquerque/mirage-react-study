@@ -1,7 +1,7 @@
 import faker from "faker";
 
-const numberOfShifts = 5;
-const numberOfDoctors = 10;
+const numberOfShifts = 4;
+const numberOfDoctors = 4;
 
 const randomShifts = new Array(numberOfShifts).fill(0).map(() => {
   return {
@@ -10,8 +10,9 @@ const randomShifts = new Array(numberOfShifts).fill(0).map(() => {
     doctors: new Array(numberOfDoctors).fill(0).map(() => {
       return {
         id: faker.datatype.uuid(),
-        nome: faker.name.findName(),
+        nome: `${faker.name.prefix()} ${faker.name.firstName()} ${faker.name.lastName()}`,
         especialidade: faker.name.jobArea(),
+        avatar: faker.image.avatar(),
       };
     }),
     startDate: faker.date.recent(),
