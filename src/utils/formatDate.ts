@@ -1,12 +1,19 @@
 import { DateTime } from "luxon";
 
 const dateType = {
-  dateAndTime: "f",
   date: "D",
-  hourAndMinutes: "T",
+  dateTime: "f",
+  dateTimeSeconds: "F",
+  hourTime: "T",
+  houtTimeSeconds: "TT",
 };
 
-type FormatType = "dateAndTime" | "date" | "hourAndMinutes";
+type FormatType =
+  | "date"
+  | "dateTime"
+  | "dateTimeSeconds"
+  | "hourTime"
+  | "houtTimeSeconds";
 
 export const dateToView = (
   date: string,

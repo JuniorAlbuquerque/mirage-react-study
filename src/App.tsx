@@ -2,7 +2,6 @@ import "./App.css";
 import "./infra/services/api/miragejs";
 import api from "./infra/services/api/api";
 import { useEffect, useState } from "react";
-import { DateTime } from "luxon";
 import { dateToView } from "./utils/formatDate";
 
 interface IDoctors {
@@ -21,8 +20,6 @@ interface IShifts {
 
 function App() {
   const [shifts, setShifts] = useState<IShifts[]>([]);
-
-  console.log(DateTime.now().toFormat("D"));
 
   useEffect(() => {
     async function getShift() {
@@ -55,14 +52,14 @@ function App() {
             <span>
               Inicio:{" "}
               {dateToView(item.startDate, {
-                format: "dateAndTime",
+                format: "dateTimeSeconds",
               })}
             </span>
 
             <span>
               Fim:{" "}
               {dateToView(item.endDate, {
-                format: "dateAndTime",
+                format: "dateTimeSeconds",
               })}
             </span>
 
